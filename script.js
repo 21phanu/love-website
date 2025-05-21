@@ -153,3 +153,14 @@ document.querySelector(".js-sticker").addEventListener("click", sticker);
 window.onresize = function (event) {
   recize_notes();
 };
+function sticker() {
+  gsap.set(".js-sticker", { width: "20%", left: "-80%" });
+  document.body.classList.remove("scissors");
+  document.querySelector(".js-sticker").removeEventListener("click", sticker);
+  document.querySelector(".js-up-paper").addEventListener("click", envelop_transition);
+  document.querySelector(".js-up-paper").classList.add("cursor");
+
+  // ✅ เล่นเพลง
+  const music = document.getElementById("bg-music");
+  if (music) music.play();
+}
